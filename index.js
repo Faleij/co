@@ -25,7 +25,7 @@ module.exports = co['default'] = co.co = co;
 
 co.wrap = function (fn) {
   createPromise.__generatorFunction__ = fn;
-  return createPromise;
+  return Object.defineProperty(createPromise, 'length', { value: fn.length });
   function createPromise() {
     return co.call(this, fn.apply(this, arguments));
   }
